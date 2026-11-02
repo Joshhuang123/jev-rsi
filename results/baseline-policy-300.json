@@ -1,0 +1,29 @@
+{
+  "model": "qwen3.5:4b-mlx",
+  "provider": "local-ollama",
+  "finished_utc": "2026-11-02T12:16:32.411052+00:00",
+  "records_sha256": "b5454f240b5a76d64208576e4b8999b92c94066030879579df89707c896e7f98",
+  "concurrency": 3,
+  "decoding": {
+    "type": "client-side label validation",
+    "logprobs": true,
+    "top_logprobs": 5,
+    "max_tokens": 8,
+    "temperature": 0,
+    "enable_thinking": false
+  },
+  "requests": 300,
+  "correct": 130,
+  "accuracy": 0.43333333333333335,
+  "valid": 300,
+  "http_errors": 0,
+  "by_source": {
+    "policy": {
+      "requests": 300,
+      "correct": 130,
+      "accuracy": 0.43333333333333335,
+      "valid": 300,
+      "http_errors": 0
+    }
+  }
+}

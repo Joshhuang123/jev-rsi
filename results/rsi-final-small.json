@@ -1,0 +1,12 @@
+{
+  "scoring_function": "dev 集逐问题 argmax 准确率（事先固定，test 全程不参与选择）",
+  "keep_rule": "候选 dev 分数 > 当前最优 → 采纳为新基线，否则丢弃",
+  "rounds": 12,
+  "best_round": "MLP128 / lr1e-2",
+  "best_dev_acc": 0.3333333333333333,
+  "test_accuracy": 0.06666666666666667,
+  "random_baseline_test": 0.2977777777777778,
+  "train_questions": 36,
+  "dev_questions": 9,
+  "test_questions": 45
+}

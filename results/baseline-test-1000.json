@@ -1,0 +1,65 @@
+{
+  "model": "qwen3.5:4b-mlx",
+  "provider": "local-ollama",
+  "finished_utc": "2026-11-02T11:28:10.090195+00:00",
+  "records_sha256": "0b94c2530c3b86b7d8c182eb137859dd22af88379a9b2b3e0c32bf81a38c71bd",
+  "limit": null,
+  "concurrency": 3,
+  "decoding": {
+    "type": "client-side label validation",
+    "logprobs": true,
+    "top_logprobs": 5,
+    "max_tokens": 8,
+    "temperature": 0,
+    "enable_thinking": false
+  },
+  "requests": 1000,
+  "correct": 673,
+  "accuracy": 0.673,
+  "valid": 1000,
+  "http_errors": 0,
+  "by_source": {
+    "ag_news": {
+      "requests": 100,
+      "correct": 87,
+      "accuracy": 0.87,
+      "valid": 100,
+      "http_errors": 0
+    },
+    "banking77": {
+      "requests": 200,
+      "correct": 151,
+      "accuracy": 0.755,
+      "valid": 200,
+      "http_errors": 0
+    },
+    "boolq": {
+      "requests": 200,
+      "correct": 164,
+      "accuracy": 0.82,
+      "valid": 200,
+      "http_errors": 0
+    },
+    "mnli": {
+      "requests": 250,
+      "correct": 175,
+      "accuracy": 0.7,
+      "valid": 250,
+      "http_errors": 0
+    },
+    "policy": {
+      "requests": 150,
+      "correct": 61,
+      "accuracy": 0.4066666666666667,
+      "valid": 150,
+      "http_errors": 0
+    },
+    "sst5": {
+      "requests": 100,
+      "correct": 35,
+      "accuracy": 0.35,
+      "valid": 100,
+      "http_errors": 0
+    }
+  }
+}

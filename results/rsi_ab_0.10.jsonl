@@ -1,0 +1,12 @@
+{"round": 1, "desc": "线性头 / lr3e-3", "hidden": 0, "lr": 0.003, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": true, "best_dev_acc": 0.0, "best_desc": "线性头 / lr3e-3", "secs": 0.0}
+{"round": 2, "desc": "线性头 / lr1e-2", "hidden": 0, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.0, "best_desc": "线性头 / lr3e-3", "secs": 0.0}
+{"round": 3, "desc": "MLP128 / lr3e-3", "hidden": 128, "lr": 0.003, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.0, "best_desc": "线性头 / lr3e-3", "secs": 0.6}
+{"round": 4, "desc": "MLP128 / lr1e-2", "hidden": 128, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.0, "best_desc": "线性头 / lr3e-3", "secs": 0.6}
+{"round": 5, "desc": "MLP256 / lr3e-3", "hidden": 256, "lr": 0.003, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.25, "kept": true, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 1.3}
+{"round": 6, "desc": "MLP256 / lr1e-2", "hidden": 256, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 1.4}
+{"round": 7, "desc": "MLP256 / eps0.05", "hidden": 256, "lr": 0.01, "epochs": 40, "eps": 0.05, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 1.2}
+{"round": 8, "desc": "MLP256 / eps0.10", "hidden": 256, "lr": 0.01, "epochs": 40, "eps": 0.1, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 1.2}
+{"round": 9, "desc": "MLP256 / 80 轮", "hidden": 256, "lr": 0.01, "epochs": 80, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 2.5}
+{"round": 10, "desc": "MLP256 / L2=1e-4", "hidden": 256, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0001, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 1.5}
+{"round": 11, "desc": "MLP512 / lr1e-2", "hidden": 512, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 2.7}
+{"round": 12, "desc": "MLP512 / 80 轮", "hidden": 512, "lr": 0.01, "epochs": 80, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.0, "kept": false, "best_dev_acc": 0.25, "best_desc": "MLP256 / lr3e-3", "secs": 5.3}
