@@ -125,6 +125,18 @@ temperature=0、max_tokens=8、关闭思考。**任何能按这个格式回答�
 
 ## 复现
 
+### 一条命令
+
+```bash
+git clone https://github.com/Joshhuang123/jev-rsi.git
+cd jev-rsi && bash install.sh
+```
+
+`install.sh` 会：克隆 tev1 官方评测集 → 建 venv → 装依赖（Apple Silicon 上含 mlx/mlx-lm）→ 检查 ollama 与模型 → 打印下一步命令。
+它不会自动跑评测（评测很吃资源，先读完 `known-issues.md` 再开跑）。
+
+### 手动逐步
+
 ```bash
 # 1. 取官方仓库与评测集
 git clone https://github.com/togethercomputer/tev1.git
@@ -142,6 +154,19 @@ python3 scripts/rsi_loop.py --train /tmp/lt.npz --test /tmp/lv.npz --record /tmp
 ```
 
 **环境**：MacBook Air M4 / 16GB / macOS 15.6.1 · Python 3.13（`mlx 0.32.4` + `mlx-lm 0.32.2` + numpy）
+
+### 换一台机器跑
+
+`scripts/` 里的路径都已参数化（`TEV1_REPO` 环境变量、`--model-dir` 参数），换机器不用改代码。
+两条通路：
+
+```bash
+# 通路 A · GitHub（那台机器能上网时）
+git clone https://github.com/Joshhuang123/jev-rsi.git && cd jev-rsi && bash install.sh
+
+# 通路 B · 离线（把整个目录拷过去就行，含 .sh）
+bash sync-to-macmini.sh --via-t7   # 在有 T7 的机器上执行
+```
 
 ## 目录
 
