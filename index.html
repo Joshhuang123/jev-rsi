@@ -144,6 +144,12 @@
   </ul>
 
   <h2>复现</h2>
+
+  <p><b>一条命令</b>（装环境 + 拉官方评测集 + 检查依赖）：</p>
+<pre><code>git clone https://github.com/Joshhuang123/jev-rsi.git
+cd jev-rsi &amp;&amp; bash install.sh</code></pre>
+
+  <p>或手动逐步：</p>
 <pre><code>git clone https://github.com/togethercomputer/tev1.git
 cd tev1 &amp;&amp; uv sync --locked
 uv run python fetch_sources.py &amp;&amp; uv run python build_all.py
@@ -154,8 +160,11 @@ python3 scripts/eval_local.py --model qwen3.5:4b-mlx \
 
 # head-only + RSI 循环
 python3 scripts/latent_extract.py --records &lt;train.jsonl&gt; --out /tmp/lt.npz --limit 500 --max-len 256
-python3 scripts/latent_extract.py --records &lt;test.jsonl&gt;  --out /tmp/lv.npz --limit 500 --max-len 256
+python3 scripts/latent_extract.py --records &lt;test.jsonl&gt; --out /tmp/lv.npz --limit 500 --max-len 256
 python3 scripts/rsi_loop.py --train /tmp/lt.npz --test /tmp/lv.npz --record /tmp/rsi.jsonl</code></pre>
+
+  <p>换一台机器跑：<code>scripts/</code> 里的路径都已参数化（<code>TEV1_REPO</code> 环境变量、<code>--model-dir</code> 参数），
+  不用改代码。仓库里另有 <code>sync-to-macmini.sh</code> 和 <code>取回并安装.sh</code> 支持离线拷贝。</p>
 
   <footer>
     评测集来自 tev1 官方仓库（MIT），构建自 MNLI / BoolQ / Banking77 / AG News / SST5。代码 MIT。
