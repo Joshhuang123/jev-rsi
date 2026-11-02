@@ -137,7 +137,7 @@ APP NOT AUTHORIZED FOR LOCATION SERVICES, will not continue (status=0 ... req=GE
 - `/private/tmp` 里 4.4G 莫名清空，包括发布脚本要用的 Chrome 登录态目录 `chrome-ops`
 - `ollama list` 里的模型少了三个
 
-**原因**：这台机器上 WorkBuddy AI 是并行跑的 agent，会重启 ollama、清临时目录、动模型。
+**原因**：这台机器上可能有另一个 agent 在并行跑（同一台机器上多套 agent 协作很常见），它会重启 ollama、清临时目录、动模型。
 
 **改法**：
 - 评测脚本加重试（连接错误不算模型答错）

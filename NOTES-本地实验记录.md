@@ -33,13 +33,13 @@
 
 ## 依赖位置
 
-- tev1 仓库：`~/WorkBuddy/tev1`（`data/v1/records/{train,dev,test,policy_transfer}.jsonl`）
-- MLX 权重：`~/WorkBuddy/models/qwen3.5-4b-mlx4`（从 ollama 重组，非下载所得）
-- Python venv：`~/WorkBuddy/venvs/jev`（mlx 0.32.4 + mlx_lm 0.32.2 + numpy + transformers）
+- tev1 仓库：见 README 的复现步骤（`data/v1/records/{train,dev,test,policy_transfer}.jsonl`）
+- MLX 权重：从 ollama 重组（非下载所得），路径可用 `--model-dir` 指定
+- Python venv：mlx 0.32.4 + mlx_lm 0.32.2 + numpy + transformers
 - 跑法：`python3 eval_local.py --model qwen3.5:4b-mlx --records <jsonl> --output <dir> --concurrency 3`
 
 ## 已知的坑
 
-- **这台机器上还有 WorkBuddy AI 在并行跑**，它会重启 ollama、清理 /private/tmp（含 `chrome-ops` 这个发布脚本的浏览器登录态）、动 ollama 模型。评测脚本因此加了重试。
+- **这台机器上可能有另一个 agent 在并行跑**，它会重启 ollama、清理 /private/tmp、动 ollama 模型。评测脚本因此加了重试。
 - **内存很紧**（16GB，ollama + MLX + 并行 agent 一起跑会 OOM），所以抽取和评测必须**串行**。
 - 国内源（hf-mirror / 清华 pypi）要加进 `NO_PROXY`，否则会被本机代理（127.0.0.1:7897）打断，报 `SSL: UNEXPECTED_EOF_WHILE_READING`。
