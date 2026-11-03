@@ -10,4 +10,3 @@
 {"round": 10, "desc": "MLP256 / L2=1e-4", "hidden": 256, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0001, "seed": 0, "dev_acc": 0.045454545454545456, "kept": false, "best_dev_acc": 0.42727272727272725, "best_desc": "线性头 / lr1e-2", "secs": 14.6}
 {"round": 11, "desc": "MLP512 / lr1e-2", "hidden": 512, "lr": 0.01, "epochs": 40, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.02727272727272727, "kept": false, "best_dev_acc": 0.42727272727272725, "best_desc": "线性头 / lr1e-2", "secs": 28.7}
 {"round": 12, "desc": "MLP512 / 80 轮", "hidden": 512, "lr": 0.01, "epochs": 80, "eps": 0.02, "l2": 0.0, "seed": 0, "dev_acc": 0.02727272727272727, "kept": false, "best_dev_acc": 0.42727272727272725, "best_desc": "线性头 / lr1e-2", "secs": 50.8}
-}
