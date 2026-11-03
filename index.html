@@ -119,15 +119,22 @@
     <tbody>
       <tr><td>4</td><td>MLP256 / lr3e-3</td><td class="num">0.250</td><td class="num">0.244</td><td class="num">0.298</td></tr>
       <tr class="bad"><td>9</td><td>MLP128 / lr1e-2</td><td class="num">0.333</td><td class="num">0.067</td><td class="num">0.298</td></tr>
-      <tr class="hl"><td>15</td><td>MLP256 / lr3e-3</td><td class="num">0.333</td><td class="num">0.311</td><td class="num">0.298</td></tr>
+      <tr><td>15</td><td>MLP256 / lr3e-3</td><td class="num">0.333</td><td class="num">0.311</td><td class="num">0.298</td></tr>
       <tr><td>22</td><td>线性头 / lr3e-3</td><td class="num">0.364</td><td class="num">0.289</td><td class="num">0.298</td></tr>
+      <tr class="hl"><td><b>110</b></td><td><b>线性头 / lr1e-2</b></td><td class="num"><b>0.427</b></td><td class="num"><b>0.490</b></td><td class="num"><b>0.314</b></td></tr>
     </tbody>
   </table>
   <div class="note">
-    <p><b>两条结论：</b></p>
+    <p><b>三条结论：</b></p>
     <p><b>① RSI 循环会把评分函数的噪声当成信号去优化。</b>dev 越小越容易被带偏，9 题时甚至选出 test 只有 6.7% 的配置 —— 比随机还低。</p>
-    <p><b>② 更根本的：</b>即使评分函数给到 22 题，head-only 也只在随机基线上下浮动。
+    <p><b>② 样本量就是评分函数的地基。</b>题量差 12 倍（9 → 110），test 从「不如随机」变成<b>高出随机 17.6 个点</b>。
+    而且不是随机波动 —— 第 1 轮采纳的配置在 test 上只有 37.0%，循环选出的高出 12 个点。<b>循环确实在挑配置。</b>
+    <b>小样本的消融结论不能外推。</b></p>
+    <p><b>③ 更根本的：</b>即使评分函数给到 110 题，head-only 的 49.0% 仍<b>低于零训练基线的 67.3%</b>。
     <b>在未做 NLI 微调的基础主干上冻结 + 加小头，学不出决策能力。</b>openjev 能到 0.814，用的是 NLI 微调过的主干 —— 主干才是关键。</p>
+    <p style="margin-top:8px"><b>一条更尖锐的旁证：</b>大样本 12 轮里胜出的是<b>最简单的线性头</b>，
+    <b>10 个 MLP 提案全部被丢弃</b>（dev 只有 2.7%–4.6%）。在基础主干上，<b>加复杂度不是改进，是破坏</b> ——
+    latent 里根本没有那个信息，head 再大也读不出来。</p>
   </div>
 
   <figure>
@@ -139,8 +146,10 @@
   <p>要复刻 openjev 的效果，得先有 NLI 微调过的主干：直接用现成权重
   <code>togethercomputer/Tev1-4B-experimental</code>，或者用 tev1 的 37,840 条配方自己训（LoRA rank 8 / 1 epoch / lr 5e-5 / 2048 token）。</p>
   <ul>
-    <li><b>给做 RSI 的人的硬规矩一</b>：评分函数要几百题量级，且与 test 严格隔离，否则循环越跑越糟。</li>
-    <li><b>硬规矩二</b>：先确认主干本身有那个能力，再谈「加头能提升多少」—— 否则你一直在给一个不存在的天花板调参。</li>
+    <li><b>给做 RSI 的人的硬规矩一</b>：评分函数要几百题量级，且与 test 严格隔离，否则循环越跑越糟。
+    <b>本项目实测：dev 9 题 → test 6.7%（不如随机）；dev 110 题 → test 49.0%（高出随机 17.6 点）。</b></li>
+    <li><b>硬规矩二</b>：先确认主干本身有那个能力，再谈「加头能提升多少」—— 否则你一直在给一个不存在的天花板调参。
+    <b>本项目实测：head-only 最好 49.0%，直接问模型 67.3%。</b></li>
   </ul>
 
   <h2>复现</h2>
